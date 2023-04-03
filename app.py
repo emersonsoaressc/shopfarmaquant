@@ -30,16 +30,16 @@ if input_ean != "":
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
-        st.image("image\logo_pp.png", width=100)
+        st.image("image/logo_pp.png", width=100)
         st.subheader(f"R$ {preco_pp[3]}")
     with col2:
-        st.image("image\logo_saojoao.png", width=100)
+        st.image("image/logo_saojoao.png", width=100)
         st.subheader(f"R$ {preco_saojoao[2]}")
     with col3:
-        st.image("image\logo_paguemenos.png", width=100)
+        st.image("image/logo_paguemenos.png", width=100)
         st.subheader(f"R$ {preco_paguemenos[2]}")
     with col4:
-        st.image("image\logo_raia.png", width=100)
+        st.image("image/logo_raia.png", width=100)
         st.subheader(f"R$ {preco_raia[2]}")
 
 else:
