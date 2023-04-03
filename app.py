@@ -22,23 +22,25 @@ if input_ean != "":
         preco_paguemenos = extrai_dados_paguemenos(input_ean)
     except:
         preco_paguemenos = "0,00"   
+
+    try:
+        st.subheader(preco_pp[0])
+    except:
+        pass
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.image("image\logo_pp.png", width=100)
+        st.subheader(f"R$ {preco_pp[3]}")
+    with col2:
+        st.image("image\logo_saojoao.png", width=100)
+        st.subheader(f"R$ {str(float(preco_saojoao[2])).replace('.', ',')}")
+    with col3:
+        st.image("image\logo_paguemenos.png", width=100)
+        st.subheader(f"R$ {str(float(preco_paguemenos[2])).replace('.', ',')}")
+    with col4:
+        st.image("image\logo_raia.png", width=100)
+        st.subheader(f"R$ {str(float(preco_raia[2])).replace('.', ',')}")
+
 else:
-    preco_pp = "Digite o EAN do medicamento"
-
-
-col1, col2, col3, col4 = st.columns(4)
-with col1:
-    st.image("image\logo_pp.png", width=100)
-    st.write(f"R$ {str(float(preco_pp[2])).replace('.', ',')}")
-with col2:
-    st.image("image\logo_saojoao.png", width=100)
-    st.write(f"R$ {str(float(preco_saojoao[2])).replace('.', ',')}")
-with col3:
-    st.image("image\logo_paguemenos.png", width=100)
-    st.write(f"R$ {str(float(preco_paguemenos[2])).replace('.', ',')}")
-with col4:
-    st.image("image\logo_raia.png", width=100)
-    st.write(f"R$ {str(float(preco_raia[2])).replace('.', ',')}")
-
-
+    pass
 

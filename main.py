@@ -16,10 +16,11 @@ def extrai_dados_preco_popular(ean):
     link_final_preco_popular = link.split('?idsku')[0]
     site_precopopular = requests.get(link_final_preco_popular, headers=headers)
     soup_site_precopopular = BeautifulSoup(site_precopopular.content, 'html.parser')
+    name_pp = soup_site_precopopular.find('h1', class_='product-main__name').get_text()
     cod_preco_popular = soup_site_precopopular.find('div', class_='productReference').get_text()
     preco_preco_popular = soup_site_precopopular.find('strong', class_='skuBestPrice').get_text()
     preco_preco_popular = float(preco_preco_popular.split('R$')[1].replace(',', '.'))
-    lst_preco_popular = [link_final_preco_popular, cod_preco_popular, preco_preco_popular]
+    lst_preco_popular = [name_pp, link_final_preco_popular, cod_preco_popular, preco_preco_popular]
     return lst_preco_popular
 
 def extrai_dados_saojoao(ean):
