@@ -27,6 +27,7 @@ if input_ean != "":
         st.subheader(preco_pp[0])
     except:
         pass
+    
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.image("image\logo_pp.png", width=100)
