@@ -15,10 +15,6 @@ if input_ean != "":
     except:
         preco_saojoao = ["0,00", "0,00", 0.00]
     try:
-        preco_raia = extrai_dados_raia(input_ean)
-    except:
-        preco_raia = ["0,00", "0,00", 0.00]
-    try:
         preco_paguemenos = extrai_dados_paguemenos(input_ean)
     except:
         preco_paguemenos = ["0,00", "0,00", 0.00]   
@@ -28,7 +24,7 @@ if input_ean != "":
     except:
         pass
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.image("image/logo_pp.png", width=100)
         st.subheader(f"R$ {preco_pp[3]}")
@@ -38,9 +34,6 @@ if input_ean != "":
     with col3:
         st.image("image/logo_paguemenos.png", width=100)
         st.subheader(f"R$ {preco_paguemenos[2]}")
-    with col4:
-        st.image("image/logo_raia.png", width=100)
-        st.subheader(f"R$ {preco_raia[2]}")
 
 else:
     pass
