@@ -23,15 +23,15 @@ if input_ean != "":
     except:
         preco_paguemenos = "0,00"   
 
-    try:
-        st.subheader(preco_pp[0])
-    except:
-        pass
+    #try:
+    #    st.subheader(preco_pp[0])
+    #except:
+    #    pass
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.image("image\logo_pp.png", width=100)
-        st.subheader(f"R$ {preco_pp[3]}")
+        st.subheader(f"R$ {preco_pp[2]}")
     with col2:
         st.image("image\logo_saojoao.png", width=100)
         st.subheader(f"R$ {str(float(preco_saojoao[2])).replace('.', ',')}")
