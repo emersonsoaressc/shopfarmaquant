@@ -70,3 +70,17 @@ def extrai_dados_paguemenos(ean):
     preco_paguemenos = float(preco_paguemenos.replace('R$','').replace('.','').replace(',','.'))
     lst_paguemenos = [link_interno_paguemenos, cod_paguemenos, preco_paguemenos]
     return lst_paguemenos
+
+def extrai_dados_raia(ean):
+    url_google = f'https://www.google.com/search?q=RAIA+{ean}'
+    headers = {'user-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36'}
+    site = requests.get(url_google, headers=headers)
+    soup = BeautifulSoup(site.content, 'html.parser')
+    link_interno_google = soup.find('div', class_='MjjYud').find('a')['href']
+    site_raia = requests.get(link_interno_google, headers=headers)
+    soup_site_raia = BeautifulSoup(site_raia.content, 'html.parser')
+    cod_raia = soup_site_raia.find('span', class_='RaiaProductDescriptionstyles__Data-sc-1ijezxr-8').get_text()
+    preco_raia = soup_site_raia.find('span', class_='ProductPricestyles__Price-i0kwh2-4').get_text()
+    preco_raia = float(preco_raia.split('R$ ')[1].replace(',', '.'))
+    lst_raia = [link_interno_google, cod_raia, preco_raia]
+    return lst_raia
